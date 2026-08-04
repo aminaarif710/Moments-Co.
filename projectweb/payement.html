@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment & Confirmation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #D7CCC8, #BCAAA4, #A1887F, #EFEBE9);
+      color: #5D4037;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .explore{
+      margin-top: 40px;
+    }
+    .subscribe button{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+
+    }
+    .subscribe button:hover{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      background-color: #302214;
+    }
+    .subscribe input{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    .form-container {
+      background: linear-gradient(to bottom right, #D7CCC8, #BCAAA4);
+      padding: 50px 40px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 650px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      color: #D7CCC8;
+    }
+
+    .back-arrow {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      text-decoration: none;
+      color: #D7CCC8;
+      background-color: #5D4037;
+      padding: 6px 12px;
+      border-radius: 50px;
+      transition: background 0.3s;
+    }
+
+    .back-arrow:hover {
+      background-color: #685855;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.2em;
+      color: #8c7b75;
+      margin-bottom: 25px;
+    }
+
+    .details, .payment-form {
+      margin-bottom: 20px;
+    }
+
+    .details label, .payment-form label {
+      font-weight: bold;
+      color: #5D4037;
+
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .details span {
+      color: #5D4037;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #634e43;
+      border-radius: 8px;
+      background-color: #D7CCC8;
+      color: #EFEBE9;
+      font-size: 1em;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      background-color: #5D4037;
+      color: #EFEBE9;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #3E2723;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <a href="p.html" class="back-arrow">&#8592; </a>
+    <h2>Confirm Event & Payment</h2>
+
+    <!-- Event Summary -->
+    <div class="details">
+      <label>Title:</label>
+      <span id="eventTitle"></span>
+
+      <label>Date:</label>
+      <span id="eventDate"></span>
+
+      <label>Time:</label>
+      <span id="eventTime"></span>
+
+      <label>Location:</label>
+      <span id="eventLocation"></span>
+
+      <label>Duration:</label>
+      <span id="eventDuration"></span>
+
+      <label>Description:</label>
+      <span id="eventDescription"></span>
+
+      <label>Reminder:</label>
+      <span id="eventReminder"></span>
+
+      <label>Price:</label>
+      <span id="eventPrice"></span>
+    </div>
+
+    <form class="payment-form" onsubmit="submitPayment(event)">
+      <label for="cardName">Cardholder Name</label>
+      <input type="text" id="cardName" required>
+
+      <label for="cardNumber">Card Number</label>
+      <input type="text" id="cardNumber" maxlength="16" required>
+
+      <!-- <label for="expiry">Expiry Date</label>
+      <input type="month" id="expiry" required> -->
+
+      <label for="cvv">CVV</label>
+      <input type="password" id="cvv" maxlength="4" required>
+
+      <a href="confirm.html">
+        <button type="button" class="btn">Confirm & Pay</button>
+      </a>
+      
+    </form>
+  </div>
+  <script>
+    window.onload = function () {
+      const title = localStorage.getItem("eventTitle") || "N/A";
+      const date = localStorage.getItem("eventDate") || "N/A";
+      const time = localStorage.getItem("eventTime") || "N/A";
+      const location = localStorage.getItem("eventLocation") || "N/A";
+      const duration = localStorage.getItem("eventDuration") || "0";
+      const description = localStorage.getItem("eventDescription") || "N/A";
+      const reminder = localStorage.getItem("eventReminder") || "Not Set";
+  
+      const price = parseInt(duration) * 100;
+  
+      document.getElementById("eventTitle").textContent = title;
+      document.getElementById("eventDate").textContent = date;
+      document.getElementById("eventTime").textContent = time;
+      document.getElementById("eventLocation").textContent = location;
+      document.getElementById("eventDuration").textContent = duration + " hour(s)";
+      document.getElementById("eventDescription").textContent = description;
+      document.getElementById("eventReminder").textContent = reminder;
+      document.getElementById("eventPrice").textContent = "$" + price;
+    };
+  
+    function submitPayment(e) {
+      e.preventDefault();
+      alert("Payment successful!\nEvent confirmed.");
+      // Optional: localStorage.clear();
+    }
+  </script>
+  
+
+</body>
+</html>

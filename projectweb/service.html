@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | Moments & Co.</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+
+body 
+    {
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: #333;
+    }
+
+    nav 
+    {
+      background: linear-gradient(to right, #3E2723, #5D4037);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .name 
+    {
+    display: flex;
+    align-items: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #fefefe;
+    margin-right: auto;
+    }
+
+  .name img 
+  {
+    width: 60px;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+    .menulink
+    {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menulink a 
+    {
+      color: #e5e5c8;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      padding-right: 10px;
+      font-size: 1.1em;
+    }
+
+    .menulink a:hover {
+      color: #c6c696;
+      text-decoration: underline;
+    }
+    .explore{
+      margin-top: 40px;
+    }
+    .subscribe button{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+
+    }
+    .subscribe button:hover{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      background-color: #302214;
+    }
+    .subscribe input{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    
+    .services-hero {
+      background: linear-gradient(to right, #EFEBE9, #D7CCC8);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .services-hero h1 {
+      font-size: 3em;
+      color: #5D4037;
+      margin-bottom: 20px;
+    }
+
+    .services-hero p {
+      font-size: 1.2em;
+      color: #3E2723;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .services-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Show 3 items per row */
+  gap: 20px; /* Space between grid items */
+  padding: 20px;
+  margin: 0 auto; /* Center the grid container */
+}
+
+
+.service-card {
+    background: linear-gradient(to bottom right, #D7CCC8, #BCAAA4);
+    color: #3E2723;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Transition for transform, box-shadow, and opacity */
+  animation: fadeIn 0.6s ease-out, scaleUp 0.5s ease-in-out; /* Apply multiple animations */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Start from 20px below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at the normal position */
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.95); /* Slightly smaller on load */
+  }
+  100% {
+    transform: scale(1); /* Scale to normal size */
+  }
+}
+
+.service-card:hover {
+  transform: translateY(-10px) scale(1.05); /* Slightly lift and scale the card on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  opacity: 0.9; /* Slightly reduce opacity on hover */
+}
+
+/* Rotate effect on hover */
+.service-card:hover {
+  animation: rotateCard 0.5s ease-in-out; /* Apply rotation on hover */
+}
+
+@keyframes rotateCard {
+  0% {
+    transform: rotate(0deg); /* Initial state, no rotation */
+  }
+  50% {
+    transform: rotate(10deg); /* Rotate slightly to the right */
+  }
+  100% {
+    transform: rotate(-10deg); /* Rotate slightly to the left */
+  }
+}
+
+.service-card h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.service-card p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .service-card {
+    padding: 15px;
+  }
+
+  .service-card h2 {
+    font-size: 22px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+  }
+}
+
+
+.custom-plan-section {
+  background: linear-gradient(to bottom right, #EFEBE9, #D7CCC8);
+  color: #5D4037; 
+  padding: 40px 20px;
+  text-align: center;
+}
+
+
+.custom-plan-section h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #5D4037;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+.pricing-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+  padding: 40px 20px;
+  background: #EFEBE9;
+}
+
+.pricing-card {
+  background-color: #fff; 
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #e0e0e0; 
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px); 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-card h2 {
+  font-size: 24px;
+  color: #333; 
+  margin-bottom: 20px;
+  font-weight: bold;
+  opacity: 0; 
+  transform: translateY(20px); 
+  animation: fadeInUp 0.6s ease-out forwards; 
+  animation-delay: 0.2s;
+}
+
+.pricing-card .price {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.pricing-card p {
+  font-size: 16px;
+  color: #555; 
+  line-height: 1.6;
+  opacity: 0; 
+  transform: translateY(20px); 
+  animation: fadeInUp 0.6s ease-out forwards; 
+  animation-delay: 0.4s;
+}
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.pricing-card ul li {
+  font-size: 16px;
+  color: #555;
+  margin: 10px 0;
+}
+
+.cta-button {
+  background-color: #e0e0e0;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.cta-button:hover {
+  background-color: #e0e0e0;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+
+@media (max-width: 768px) {
+  .pricing-section {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card {
+    padding: 20px;
+  }
+
+  .pricing-card h2 {
+    font-size: 22px;
+  }
+
+  .pricing-card .price {
+    font-size: 28px;
+  }
+
+  .pricing-card ul li {
+    font-size: 14px;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+  }
+}
+
+
+.cta-button {
+  background-color: #1a73e8; 
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.cta-button:hover {
+  background-color: #0057e7; 
+}
+
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-section {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card {
+    padding: 20px;
+  }
+
+  .pricing-card h2 {
+    font-size: 22px;
+  }
+
+  .pricing-card .price {
+    font-size: 28px;
+  }
+
+  .pricing-card ul li {
+    font-size: 14px;
+  }
+
+
+}
+
+.cta-button {
+    padding: 10px 20px;
+    background: linear-gradient(to bottom right, #a1918c, #685855);
+    color: #c9c4c3;
+
+  }
+    .cta {
+      background: linear-gradient(to bottom right, #a1918c, #685855);
+      color: #dfdbc7;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .cta a {
+      background: #e1dfd5;
+      color: #3E2723;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta a:hover {
+      background: rgb(76, 44, 44);
+      color: white;
+    }
+
+    footer {
+      background: #392c2a;
+      color: #ddd8c1;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    footer a {
+      color: #edebdb;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+   
+.event-planning-section {
+  background: #EFEBE9;
+  padding: 60px 20px;
+  text-align: center;
+  color: #5D4037;
+}
+
+.event-planning-section h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #5D4037;
+}
+
+.event-planning-section p {
+  font-size: 18px;
+  color: #777;
+  margin-bottom: 40px;
+}
+
+.event-planning-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+  gap: 20px;
+}
+
+.step {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 15px rgba(197, 185, 185, 0.15);
+}
+
+.step h2 {
+  font-size: 24px;
+  color: #5D4037;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.step p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .event-planning-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .step {
+    padding: 20px;
+  }
+
+  .step h2 {
+    font-size: 22px;
+  }
+
+  .step p {
+    font-size: 14px;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 1s ease forwards;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 0.9s; }
+.delay-4 { animation-delay: 1.2s; }
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.venue-options {
+    background: linear-gradient(to bottom right, #D7CCC8, #BCAAA4);
+  padding: 60px 20px;
+  text-align: center;
+  color: #5D4037;
+}
+
+.venue-options h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.venue-intro {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.venue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.venue-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.venue-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.venue-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.venue-card h3 {
+  font-size: 22px;
+  margin: 15px 0 10px;
+  color: #5D4037;
+}
+
+.venue-card p {
+  font-size: 16px;
+  color: #6D4C41;
+  padding: 0 15px 20px;
+  line-height: 1.5;
+}
+.genre-section {
+  max-width: 95%;
+  margin: auto;
+  text-align: center;
+  padding: 50px 0;
+  background: linear-gradient(to bottom right, #EFEBE9, #D7CCC8);
+}
+
+.genre-heading {
+  font-size: 2rem;
+  color: #56350f;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.feedback-msg {
+  color: #333;
+  line-height: 1.5;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.books-slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.books-slider {
+  display: flex;
+  animation: scrollBooks 30s linear infinite;
+}
+
+.book {
+  flex: 0 0 auto;
+  width: 180px;
+  margin: 0 15px;
+  text-align: center;
+}
+
+.book img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book p {
+  font-size: 1rem;
+  color: #56350f;
+  margin-top: 10px;
+}
+
+@keyframes scrollBooks {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+#executing-plan {
+  background-color: #f9f9f9; 
+  padding: 60px 0;
+}
+
+#executing-plan .section-heading {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+#executing-plan .section-description {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+#executing-plan .executing-plan-images {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+#executing-plan .executing-plan-item {
+  text-align: center;
+  width: 250px;
+}
+
+#executing-plan .executing-plan-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+#executing-plan .executing-plan-item img:hover {
+  transform: scale(1.05);
+}
+
+#executing-plan .item-title {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 15px;
+  font-weight: 600;
+}
+footer 
+    {
+      background: #392c2a;
+      color: #ddd8c1;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    footer a 
+    {
+      color: #edebdb;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover 
+    {
+      color: white;
+    }
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      background-color:  #5D4037;
+      color: #fff;
+      padding: 40px;
+    }
+
+    .footer-columns h4 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .footer-columns p, .footer-columns a {
+      font-size: 0.95em;
+      color: #ccc;
+    }
+
+    .footer-columns a:hover {
+      color: #fff;
+    }
+
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="name">
+      <img src="logo.png" alt="logo">
+      <span>Moments & Co.</span>
+    </div>
+    <div class="menulink">
+        <a href="p.html">Home</a>
+     
+        <a href="service.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+       
+        <a href="review.html">Review</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+  </nav>
+
+  
+  <section class="event-planning-section">
+    <h1 class="fade-in">  Event Planning Services?</h1>
+    <p class="fade-in delay-1">
+      Event planning is the process of conceptualizing, organizing, and executing an event from start to finish.
+      Whether it's a private gathering or a corporate event, every detail is carefully curated to ensure the
+      success of the occasion. Below are the steps we take when planning an event:
+    </p>
+  
+    <div class="event-planning-steps">
+      <div class="step slide-up">
+        <h2>1. Finalizing the Venue</h2>
+        <p>Choosing the perfect venue sets the tone for the event. We ensure the location suits your needs and budget.</p>
+      </div>
+      <div class="step slide-up delay-1">
+        <h2>2. Selecting the Theme & Tone</h2>
+        <p>The theme brings your vision to life. We help you choose a theme that aligns with your event's objectives and audience.</p>
+      </div>
+      <div class="step slide-up delay-2">
+        <h2>3. Negotiating with Vendors</h2>
+        <p>From catering to entertainment, we handle vendor negotiations to ensure quality and cost-efficiency.</p>
+      </div>
+      <div class="step slide-up delay-3">
+        <h2>4. Finalizing the Budget</h2>
+        <p>We help you set a realistic budget and ensure every aspect of the event stays within financial limits.</p>
+      </div>
+      <div class="step slide-up delay-4">
+        <h2>5. Executing the Plan</h2>
+        <p>On the event day, we manage everything, ensuring the event goes smoothly from start to finish.</p>
+      </div>
+    </div>
+  </section>
+  
+
+
+  <section class="services-hero">
+    <h1>Our Services</h1>
+    <p>At Moments & Co., we specialize in crafting unforgettable events tailored to your vision. Explore our range of services designed to make your occasion truly special.</p>
+  </section>
+
+  
+  <section class="services-section">
+    <div class="service-card">
+      <h2>Wedding Planning</h2>
+      <p>We create weddings that tell your unique love story, handling everything from design to execution with elegance and care.</p>
+    </div>
+    <div class="service-card">
+      <h2>Corporate Events</h2>
+      <p>Seamless corporate event planning, from product launches to seminars, reflecting your brand’s identity.</p>
+    </div>
+    <div class="service-card">
+      <h2>Private Parties</h2>
+      <p>Tailored event planning for birthdays, anniversaries, and more, ensuring your milestones are unforgettable.</p>
+    </div>
+    <div class="service-card">
+      <h2>Event Design & Decor</h2>
+      <p>Transforming spaces with custom themes, lighting, and decor to bring your vision to life.</p>
+    </div>
+    
+    <div class="service-card">
+      <h2>Virtual & Hybrid Events</h2>
+      <p>Seamlessly managing online and hybrid events with live streams and audience interaction tools.</p>
+    </div>
+  
+    <div class="service-card">
+      <h2>Conference Management</h2>
+      <p>End-to-end conference management, including venue selection, speaker coordination, and attendee management.</p>
+    </div>
+   
+    <div class="service-card">
+      <h2>Concerts & Festivals</h2>
+      <p>Organizing large music events, handling ticketing, sound systems, and artist coordination.</p>
+    </div>
+    <div class="service-card">
+      <h2>Team Building Events</h2>
+      <p>Designing team-building activities that foster communication, collaboration, and productivity.</p>
+    </div>
+ 
+    <div class="service-card">
+      <h2>Product Launches</h2>
+      <p>Creating exciting product launches, handling everything from venue to media outreach.</p>
+    </div>
+  </section>
+  <section class="genre-section" id="theme-tone">
+    <h2 class="genre-heading">🎨 Selecting the Theme & Tone</h2>
+    <p class="feedback-msg">
+      The theme brings your vision to life. We help you choose a theme that aligns with your event's objectives and audience.
+    </p>
+
+    <div class="books-slider-wrapper">
+        <div class="books-slider">
+            <div class="book">
+                <img src="theme1.png" alt="Theme 1">
+                <h3 class="theme-name">Rustic Garden</h3>
+            </div>
+            <div class="book">
+                <img src="theme2.png" alt="Theme 2">
+                <h3 class="theme-name">Rustic Garden</h3>
+            </div>
+            <div class="book">
+                <img src="theme3.png" alt="Theme 3">
+                <h3 class="theme-name">Modern Chic</h3>
+            </div>
+            <div class="book">
+                <img src="theme4.png" alt="Theme 4">
+                <h3 class="theme-name">Bohemian Vibes</h3>
+            </div>
+            <div class="book">
+                <img src="theme5.png" alt="Theme 5">
+                <h3 class="theme-name">Tropical Paradise</h3>
+            </div>
+            <div class="book">
+                <img src="theme6.png" alt="Theme 6">
+                <h3 class="theme-name">Classic Elegance</h3>
+            </div>
+            <div class="book">
+                <img src="theme7.png" alt="Theme 7">
+                <h3 class="theme-name">Vintage Romance</h3>
+            </div>
+            <div class="book">
+                <img src="theme8.png" alt="Theme 8">
+                <h3 class="theme-name">Funky Party</h3>
+            </div>
+            <div class="book">
+                <img src="theme9.png" alt="Theme 9">
+                <h3 class="theme-name">Glamorous Affair</h3>
+            </div>
+            <div class="book">
+                <img src="theme10.png" alt="Theme 10">
+                <h3 class="theme-name">Minimalistic Style</h3>
+            </div>
+            <div class="book">
+                <img src="theme11.png" alt="Theme 11">
+                <h3 class="theme-name">Fantasy Wonderland</h3>
+            </div>
+            <div class="book">
+                <img src="theme12.png" alt="Theme 12">
+                <h3 class="theme-name">Fairy Tale Dreams</h3>
+            </div>
+            <div class="book">
+              <img src="theme1.png" alt="Theme 1">
+              <h3 class="theme-name">Rustic Garden</h3>
+          </div>
+          <div class="book">
+              <img src="theme2.png" alt="Theme 2">
+              <h3 class="theme-name">Rustic Garden</h3>
+          </div>
+          <div class="book">
+              <img src="theme3.png" alt="Theme 3">
+              <h3 class="theme-name">Modern Chic</h3>
+          </div>
+          <div class="book">
+              <img src="theme4.png" alt="Theme 4">
+              <h3 class="theme-name">Bohemian Vibes</h3>
+          </div>
+          <div class="book">
+              <img src="theme5.png" alt="Theme 5">
+              <h3 class="theme-name">Tropical Paradise</h3>
+          </div>
+          <div class="book">
+              <img src="theme6.png" alt="Theme 6">
+              <h3 class="theme-name">Classic Elegance</h3>
+          </div>
+          <div class="book">
+              <img src="theme7.png" alt="Theme 7">
+              <h3 class="theme-name">Vintage Romance</h3>
+          </div>
+          <div class="book">
+              <img src="theme8.png" alt="Theme 8">
+              <h3 class="theme-name">Funky Party</h3>
+          </div>
+          <div class="book">
+              <img src="theme9.png" alt="Theme 9">
+              <h3 class="theme-name">Glamorous Affair</h3>
+          </div>
+          <div class="book">
+              <img src="theme10.png" alt="Theme 10">
+              <h3 class="theme-name">Minimalistic Style</h3>
+          </div>
+          <div class="book">
+              <img src="theme11.png" alt="Theme 11">
+              <h3 class="theme-name">Fantasy Wonderland</h3>
+          </div>
+          <div class="book">
+              <img src="theme12.png" alt="Theme 12">
+              <h3 class="theme-name">Fairy Tale Dreams</h3>
+          </div>
+        </div>
+    </div>
+    <div class="books-slider-wrapper">
+      <div class="books-slider">
+        
+          <div class="book">
+              <img src="theme7.png" alt="Theme 7">
+              <h3 class="theme-name">Vintage Romance</h3>
+          </div>
+          <div class="book">
+              <img src="theme8.png" alt="Theme 8">
+              <h3 class="theme-name">Funky Party</h3>
+          </div>
+          <div class="book">
+              <img src="theme9.png" alt="Theme 9">
+              <h3 class="theme-name">Glamorous Affair</h3>
+          </div>
+         
+          <div class="book">
+              <img src="theme10.png" alt="Theme 10">
+              <h3 class="theme-name">Minimalistic Style</h3>
+          </div>
+          <div class="book">
+              <img src="theme11.png" alt="Theme 11">
+              <h3 class="theme-name">Fantasy Wonderland</h3>
+          </div>
+          <div class="book">
+              <img src="theme12.png" alt="Theme 12">
+              <h3 class="theme-name">Fairy Tale Dreams</h3>
+          </div>
+
+          <div class="book">
+            <img src="theme1.png" alt="Theme 1">
+            <h3 class="theme-name">Rustic Garden</h3>
+        </div>
+        <div class="book">
+            <img src="theme2.png" alt="Theme 2">
+            <h3 class="theme-name">Rustic Garden</h3>
+        </div>
+        <div class="book">
+            <img src="theme3.png" alt="Theme 3">
+            <h3 class="theme-name">Modern Chic</h3>
+        </div>
+
+         <div class="book">
+            <img src="theme4.png" alt="Theme 4">
+            <h3 class="theme-name">Bohemian Vibes</h3>
+        </div>
+        <div class="book">
+          <img src="theme7.png" alt="Theme 7">
+          <h3 class="theme-name">Vintage Romance</h3>
+      </div>
+      <div class="book">
+          <img src="theme8.png" alt="Theme 8">
+          <h3 class="theme-name">Funky Party</h3>
+      </div>
+      <div class="book">
+          <img src="theme9.png" alt="Theme 9">
+          <h3 class="theme-name">Glamorous Affair</h3>
+      </div>
+     
+      <div class="book">
+          <img src="theme10.png" alt="Theme 10">
+          <h3 class="theme-name">Minimalistic Style</h3>
+      </div>
+      <div class="book">
+          <img src="theme11.png" alt="Theme 11">
+          <h3 class="theme-name">Fantasy Wonderland</h3>
+      </div>
+      <div class="book">
+          <img src="theme12.png" alt="Theme 12">
+          <h3 class="theme-name">Fairy Tale Dreams</h3>
+      </div>
+
+      <div class="book">
+        <img src="theme1.png" alt="Theme 1">
+        <h3 class="theme-name">Rustic Garden</h3>
+    </div>
+    <div class="book">
+        <img src="theme2.png" alt="Theme 2">
+        <h3 class="theme-name">Rustic Garden</h3>
+    </div>
+    <div class="book">
+        <img src="theme3.png" alt="Theme 3">
+        <h3 class="theme-name">Modern Chic</h3>
+    </div>
+
+     <div class="book">
+        <img src="theme4.png" alt="Theme 4">
+        <h3 class="theme-name">Bohemian Vibes</h3>
+    </div>
+      </div>
+    
+    </div>
+   
+  
+</section>
+
+
+<section class="custom-plan-section">
+    <h1>Budget planning</h1>
+    <div class="pricing-section">
+      <div class="pricing-card">
+        <h2>Basic Plan</h2>
+        <p class="price">$199</p>
+        <ul>
+          <li>Event Consultation</li>
+          <li>Basic Event Setup</li>
+          <li>1 Event Coordinator</li>
+        </ul>
+        <a href="contact.html">
+          <button class="cta-button">Choose Plan</button>
+        </a>
+      </div>
+      <div class="pricing-card">
+        <h2>Standard Plan</h2>
+        <p class="price">$399</p>
+        <ul>
+          <li>Event Consultation</li>
+          <li>Standard Event Setup</li>
+          <li>2 Event Coordinators</li>
+          <li>Event Promotion</li>
+        </ul>
+        <a href="contact.html">
+          <button class="cta-button">Choose Plan</button>
+        </a>
+      </div>
+      <div class="pricing-card">
+        <h2>Premium Plan</h2>
+        <p class="price">$799</p>
+        <ul>
+          <li>Event Consultation</li>
+          <li>Premium Event Setup</li>
+          <li>3 Event Coordinators</li>
+          <li>Custom Event Design</li>
+          <li>Marketing & Promotion</li>
+        </ul>
+        <a href="contact.html">
+          <button class="cta-button">Choose Plan</button>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section class="venue-options" id="venue-options">
+    <h1>Our Venue Options</h1>
+    <p class="venue-intro">Choose from our carefully selected venues perfect for weddings, corporate events, and private parties.</p>
+    
+    <div class="venue-grid">
+   
+      <div class="venue-card">
+        <img src="venue1.png" alt="Banquet Hall" height="18px">
+        <h3>Elegant Banquet Hall</h3>
+        <p>Ideal for wedding receptions and grand parties with luxurious decor and spacious seating.</p>
+      </div>
+  
+ 
+      <div class="venue-card">
+        <img src="venue2.png" alt="Garden Venue">
+        <h3>Open Garden Venue</h3>
+        <p>Perfect for outdoor weddings and cocktail events under the stars, surrounded by nature.</p>
+      </div>
+  
+      <div class="venue-card">
+        <img src="venue3.png" alt="Banquet Hall">
+        <h3>Corporate Conference Room</h3>
+        <p>Professional space for seminars, meetings, and workshops, equipped with AV facilities.</p>
+      </div>
+
+      <div class="venue-card">
+        <img src="venue4.png" alt="Banquet Hall">
+        <h3>Beachfront Resort</h3>
+        <p>Host dreamy weddings or chill parties by the sea. This venue offers breathtaking ocean views and a serene vibe.</p>
+      </div>
+    </div>
+   
+      
+  </section>
+  <section class="genre-section" id="catering-services">
+    <h2 class="genre-heading">🍽️ Catering Services</h2>
+    <p class="feedback-msg">
+      From elegant sit-down dinners to lively buffets, our catering service delights every palate with fresh, flavorful offerings.
+    </p>
+  
+    <div class="books-slider-wrapper">
+      <div class="books-slider">
+        <div class="book">
+          <img src="catering1.png" alt="Buffet Setup">
+          <p class="img-caption">Buffet Setup</p>
+        </div>
+        <div class="book">
+          <img src="catering2.png" alt="Plated Dish">
+          <p class="img-caption">Plated Dish</p>
+        </div>
+        <div class="book">
+          <img src="catering4.png" alt="Dessert Table">
+          <p class="img-caption">Dessert Table</p>
+        </div>
+        <div class="book">
+          <img src="catering3.png" alt="Drinks Bar">
+          <p class="img-caption">Beverage Bar</p>
+        </div>
+        <div class="book">
+          <img src="catering5.png" alt="Serving Staff">
+          <p class="img-caption">Serving Staff</p>
+        </div>
+        <div class="book">
+          <img src="catering6.png" alt="Outdoor Setup">
+          <p class="img-caption">Outdoor Setup</p>
+        </div>
+        <div class="book">
+          <img src="catering7.png" alt="Food Presentation">
+          <p class="img-caption">Food Presentation</p>
+        </div>
+        <div class="book">
+          <img src="catering8.png" alt="Live Cooking">
+          <p class="img-caption">Live Cooking</p>
+        </div>
+        <div class="book">
+          <img src="catering1.png" alt="Buffet Setup">
+          <p class="img-caption">Buffet Setup</p>
+        </div>
+        <div class="book">
+          <img src="catering2.png" alt="Plated Dish">
+          <p class="img-caption">Plated Dish</p>
+        </div>
+        <div class="book">
+          <img src="catering4.png" alt="Dessert Table">
+          <p class="img-caption">Dessert Table</p>
+        </div>
+        <div class="book">
+          <img src="catering3.png" alt="Drinks Bar">
+          <p class="img-caption">Beverage Bar</p>
+        </div>
+        <div class="book">
+          <img src="catering5.png" alt="Serving Staff">
+          <p class="img-caption">Serving Staff</p>
+        </div>
+        <div class="book">
+          <img src="catering6.png" alt="Outdoor Setup">
+          <p class="img-caption">Outdoor Setup</p>
+        </div>
+        <div class="book">
+          <img src="catering7.png" alt="Food Presentation">
+          <p class="img-caption">Food Presentation</p>
+        </div>
+        <div class="book">
+          <img src="catering8.png" alt="Live Cooking">
+          <p class="img-caption">Live Cooking</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section class="cta">
+    <h2>Ready to Plan Your Event?</h2>
+    <a href="contact.html">Contact Us</a>
+  </section>
+
+
+  <footer>
+    <div class="footer-columns">
+      <div>
+        <h4>Head Office</h4>
+        <p>4 C, Zulfiqar Commercial Street 3, Phase VIII, D.H.A. Karachi - 75500 Pakistan</p>
+        <p><strong>Phone:</strong> +92 305 2224878</p>
+        <p><strong>Email:</strong> info@prime-events.pk</p>
+      </div>
+      <div>
+        <h4>Lahore Office</h4>
+        <p>9-N, Model Town Extension, Lahore, Pakistan</p>
+        <p><strong>Phone:</strong> +92 305 2224878</p>
+        <p><strong>Email:</strong> info@prime-events.pk</p>
+      </div>
+      <div>
+        <h4>USA & Canada Office</h4>
+        <p>1040 Cedar Creek Drive, Gloucester, Ottawa, K1X 0G3 Canada</p>
+        <p><strong>Phone:</strong> +1 343 988 4125</p>
+        <p><strong>Email:</strong> tafseer786@gmail.com</p>
+      </div>
+      <div>
+        <h4>Latest News</h4>
+        <p>8<sup>th</sup> Pak Water & Energy Expo from 3<sup>rd</sup> - 5<sup>th</sup> December, 2024 at Expo Centre Karachi</p>
+        <p>17<sup>th</sup> Pak Pharma & Healthcare Expo from 20<sup>th</sup> - 22<sup>nd</sup> Jan, 2025 at Expo Centre Lahore</p>
+        <div class="subscribe">
+          <input type="text" placeholder="Your email">
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="social-links">
+      <p>Follow us: 
+        <a href="#">Instagram</a> |
+        <a href="#">LinkedIn</a> |
+        <a href="#">GitHub</a>
+      </p>
+      <p>&copy; 2025 Event Manager. All rights reserved.</p>
+    </div>
+    
+  </footer>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper(".vendorsSwiper", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
+</body>
+</html>

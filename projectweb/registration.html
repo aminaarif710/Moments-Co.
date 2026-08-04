@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Registration</title>
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #EFEBE9, #D7CCC8);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .explore{
+      margin-top: 40px;
+    }
+    .subscribe button{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+
+    }
+    .subscribe button:hover{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      background-color: #302214;
+    }
+    .subscribe input{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    .registration-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      width: 100%;
+      animation: slideUp 0.6s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h2 {
+      text-align: center;
+      color: #5D4037;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+      color: #5D4037;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid #BCAAA4;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #5D4037;
+      color: #fff;
+      padding: 14px;
+      margin-top: 20px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #3E2723;
+    }
+  </style>
+</head>
+<body>
+  <div class="registration-container">
+    <h2>Register for the Event</h2>
+    <form id="registrationForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required placeholder="Your name">
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" required placeholder="you@example.com">
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required placeholder="e.g., 0300-1234567">
+
+      <label for="ticket">Ticket Type</label>
+      <select id="ticket" required>
+        <option>Standard</option>
+        <option>VIP</option>
+        <option>Student</option>
+      </select>
+
+      <button type="submit">Submit Registration</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Thank you for registering!");
+      this.reset();
+    });
+  </script>
+</body>
+</html>

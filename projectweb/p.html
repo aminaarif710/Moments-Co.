@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Manager</title>
+  <style>
+    body 
+    {
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: #333;
+    }
+  
+    nav 
+    {
+      background: linear-gradient(to right, #3E2723, #5D4037);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .name 
+    {
+    display: flex;
+    align-items: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #fefefe;
+    margin-right: auto;
+    }
+
+  .name img 
+  {
+    width: 60px;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+    .menulink
+    {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menulink a 
+    {
+      color: #e5e5c8;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      padding-right: 10px;
+      font-size: 1.1em;
+    }
+
+    .menulink a:hover {
+      color: #c6c696;
+      text-decoration: underline;
+    }
+
+
+    .hero 
+    {
+      background: url('hero.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      height: 70vh;
+      padding: 120px 20px;
+      background-blend-mode: overlay;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero h1 
+    {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      color: #ece9d4;
+    }
+
+    .hero p 
+    {
+      font-size: 1.3em;
+      margin-bottom: 40px;
+    }
+
+    .hero a 
+    {
+      background: #e5e4e2;
+      color: #3E2723;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero a:hover 
+    {
+      background: rgb(113, 65, 65);
+      color: white;
+    }
+    .new {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.new a {
+  background: #e5e4e2;
+  color: #3E2723;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.new a:hover {
+  background: rgb(113, 65, 65);
+  color: white;
+}
+
+    .event
+    {
+      background: linear-gradient(to bottom right, #EFEBE9, #D7CCC8);
+      padding: 60px 30px;
+      text-align: center;
+    }
+
+    .event h2 
+    {
+      font-size: 2.5em;
+      color: #5D4037;
+      margin-bottom: 20px;
+    }
+
+    .event p 
+    {
+      font-size: 1.1em;
+      color: #3E2723;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .features 
+    {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      padding: 60px 30px;
+    }
+    .feature 
+    {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 40%;
+      height: 200px;
+      margin: 20px;
+      background: linear-gradient(to bottom right, #D7CCC8, #BCAAA4);
+      color: #3E2723;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature:hover 
+    {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature img 
+    {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .feature h3 
+    {
+      margin-bottom: 15px;
+      color: #3E2723;
+    }
+
+    .slidecontainer 
+    {
+      background: linear-gradient(to bottom right, #EFEBE9, #D7CCC8);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .slidecontainer h2 
+    {
+      color: #5D4037;
+      font-size: 2.2rem;
+    }
+    .slidecontainer p
+    {
+      font-size: 1.3em;
+      color: #3E2723;
+    }
+   
+
+    .slideview 
+    {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      height: 550px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .slideimage 
+    {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slideimage img 
+    {
+      width: 100%;
+      height: 620px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .slidenav 
+    {
+      position: absolute;
+      top: 50%;
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 20px;
+    }
+
+    .slidenav button 
+    {
+      background: #e5e4e2;
+      color: #3E2723;
+      border: none;
+      padding: 12px 16px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease;
+    }
+    
+    .history 
+    {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      /* background: linear-gradient(to bottom right, #D7CCC8, #BCAAA4); */
+      background: linear-gradient(to bottom right, #d4cfcc, #cbbbb5);
+      
+    }
+
+    .history-text 
+    {
+      flex: 1 1 55%;
+      padding: 30px;
+      text-overflow: none;
+    }
+
+    .history-text h2 
+    {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #5D4037;
+    }
+
+    .history-text p 
+    {
+      font-size: 1.1rem;
+      color: #3E2723;
+      text-align: left;
+      padding: 40px;
+    }
+
+    .history img 
+    {
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 20%; 
+      border: 6px solid #5D4037;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+    } 
+    
+    .team 
+    {
+      padding: 60px 30px;
+      background: linear-gradient(to bottom right, #EFEBE9, #D7CCC8);
+      text-align: center;
+    }
+
+    .team h2 
+    {
+      font-size: 2.5em;
+      color: #5D4037;
+      margin-bottom: 10px;
+    }
+
+    .team-intro
+    {
+      font-size: 1.1em;
+      color: #3E2723;
+      margin-bottom: 50px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .team-members 
+    {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .member 
+    {
+      background: #EFEBE9;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      width: 250px;
+      transition: transform 0.3s ease;
+    }
+
+    .member:hover 
+    {
+      transform: translateY(-10px);
+    }
+
+    .member img 
+    {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 4px solid #5D4037;
+    }
+
+    .member h3 
+    {
+      margin: 10px 0 5px;
+      color: #3E2723;
+    }
+
+    .member p 
+    {
+      color: #5D4037;
+      font-size: 0.95em;
+    }
+
+    .cta 
+    {
+      background: linear-gradient(to bottom right, #a1918c, #685855);
+      color: #dfdbc7;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    
+    .cta h2
+    {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .cta a 
+    {
+      background: #e1dfd5;
+      color: #3E2723;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta a:hover 
+    {
+        background: rgb(76, 44, 44);
+        color: white;
+    }
+
+    footer 
+    {
+      background: #392c2a;
+      color: #ddd8c1;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    footer a 
+    {
+      color: #edebdb;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover 
+    {
+      color: white;
+    }
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      background-color:  #5D4037;
+      color: #fff;
+      padding: 40px;
+    }
+
+    .footer-columns h4 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .footer-columns p, .footer-columns a {
+      font-size: 0.95em;
+      color: #ccc;
+    }
+
+    .footer-columns a:hover {
+      color: #fff;
+    }
+
+.packages-preview {
+  padding: 60px 0;
+  background: linear-gradient(to bottom right, #EFEBE9, #D7CCC8);
+  text-align: center;
+}
+
+.packages-preview .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.packages-preview .section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #3E2723;
+  margin-bottom: 15px;
+}
+
+.packages-preview .section-description {
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 40px;
+}
+
+.packages-preview-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.package-preview-item {
+  background-color: #e9e2e2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.package-preview-item:hover {
+  transform: translateY(-5px);
+}
+
+.package-preview-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.package-preview-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #3E2723;
+  margin-bottom: 10px;
+}
+
+.package-preview-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: rgb(244, 239, 239);
+  color: #000000;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: rgb(92, 65, 65);
+  color: white;
+}
+
+.offer {
+  padding: 60px 0;
+  background: linear-gradient(to bottom right, #e7e3e0, #e6dfdc);
+  text-align: center;
+}
+
+.offer .container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.offer h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #663f38;
+  margin-bottom: 20px;
+}
+
+.offer .description {
+  font-size: 1.1rem;
+  color: #777;
+  margin-bottom: 40px;
+}
+
+.offer-items {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.offer-item {
+  width: 30%;
+  text-align: center;
+}
+
+.offer-item img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.offer-item h3 {
+  font-size: 1.6rem;
+  color: #735049;
+  margin-bottom: 10px;
+}
+
+.offer-item p {
+  font-size: 1rem;
+  color: #555;
+}
+.fun-additions {
+  padding: 60px 0;
+  background: linear-gradient(to bottom right, #ebe3de, #c4b7af);
+  text-align: center;
+}
+
+.fun-additions .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.fun-additions h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #634444;
+}
+
+.fun-additions .description {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.additions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.addition-item {
+  /* background: #ebd9d9; */
+  background: linear-gradient(to bottom right, #e7e3e0, #b59f95);
+  border-radius: 8px;
+  padding: 20px;
+  width: 28%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+
+.addition-item:hover {
+  transform: translateY(-5px);
+}
+
+.circle-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 30%;
+  overflow: hidden;
+  margin: 0 auto 15px;
+}
+
+.circle-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.addition-item h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.addition-item p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+    @media (max-width: 768px) {
+      .feature {
+        width: 80%;
+      }
+      
+      .history {
+        flex-direction: column;
+      }
+      
+      .history img {
+        width: 250px;
+        height: 250px;
+      }
+      
+      .team-members {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .hero h1 {
+        font-size: 2.5em;
+      }
+      
+      nav {
+        flex-direction: column;
+        padding: 15px;
+      }
+      
+      .menulink {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    .explore{
+      margin-top: 40px;
+    }
+    .subscribe button{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+
+    }
+    .subscribe button:hover{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      background-color: #302214;
+    }
+    .subscribe input{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="name">
+      <img src="logo.png" alt="logo">
+      <span>Moments & Co.</span>
+    </div>
+    
+    
+    <div class="menulink">
+      <a href="#home">Home</a>
+   
+      <a href="service.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+     
+      <a href="review.html">Review</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+
+    <h1>Plan, Manage & Celebrate with Moments & Co.</h1>
+    <p>Simplify your event planning experience with our all-in-one platform.</p>
+  </section>
+
+
+  <div class="history">
+    <div class="history-text">
+      <h2>About Moments & Co.</h2>
+      <p>
+        Since 2020, Moments & Co has been transforming visions into unforgettable experiences.
+        What began as a passion project during a time of global pause quickly evolved into a trusted name in event management.
+        With creativity at our core and perfection in our process,
+        we specialize in curating seamless, stylish, and memorable events.
+        From intimate gatherings to grand celebrations, our team is dedicated to bringing your ideas to life with elegance, innovation, and heart.
+      </p>
+      <section class="new">
+        <a href="schedule.html">Book Your Event</a>
+      </section>
+    
+    </div>
+    <div class="history img">
+      <img src="event.jpg" alt="Our Journey">
+    </div>
+  </div>
+
+  <section class="offer">
+    <div class="container">
+      <h2>What We Offer</h2>
+      <p class="description">From catering to decor, we offer everything to make your event unforgettable. Explore our services!</p>
+  
+      <div class="offer-items">
+        <div class="offer-item">
+          <img src="offerone.jpg" alt="Catering">
+          <h3>Catering</h3>
+          <p>Delicious menus to suit every taste and dietary requirement, ensuring a memorable experience.</p>
+        </div>
+  
+        <div class="offer-item">
+          <img src="offertwo.jpg" alt="Decor">
+          <h3>Decor</h3>
+          <p>Elegant decor, floral arrangements, and stunning setups to transform any venue into perfection.</p>
+        </div>
+  
+        <div class="offer-item">
+          <img src="offerthree.jpg" alt="Entertainment">
+          <h3>Entertainment</h3>
+          <p>Live music, DJ performances, and interactive games to keep guests entertained all night.</p>
+        </div>
+  
+        <div class="offer-item">
+          <img src="offerfour.jpg" alt="Photography">
+          <h3>Photography</h3>
+          <p>Capture every special moment with professional photographers who turn memories into art.</p>
+        </div>
+  
+        <div class="offer-item">
+          <img src="offerfive.jpg" alt="Floral Arrangements">
+          <h3>Floral Arrangements</h3>
+          <p>Custom floral designs to complement your theme and add elegance to your event.</p>
+        </div>
+  
+        <div class="offer-item">
+          <img src="offersix.jpg" alt="Event Planning">
+          <h3>Event Planning</h3>
+          <p>Expert event planners ensuring smooth coordination and seamless execution of your event.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="fun-additions">
+    <div class="container">
+      <h2>Fun Event Additions & Services</h2>
+      <p class="description">Take your wedding or event to the next level with these exciting, unforgettable extras!</p>
+      
+      <div class="additions-grid">
+        <div class="addition-item">
+          <div class="circle-img">
+            <img src="circleone.jpg" alt="Photo Booth">
+          </div>
+          <h3>Interactive Photo Booth</h3>
+          <p>Fun props and instant prints for guest keepsakes.</p>
+        </div>
+        
+        <div class="addition-item">
+          <div class="circle-img">
+            <img src="circletwo.jpg" alt="Light Show">
+          </div>
+          <h3>Custom Light Show</h3>
+          <p>Light synced with music to create dramatic ambiance.</p>
+        </div>
+  
+        <div class="addition-item">
+          <div class="circle-img">
+            <img src="circlethree.jpg" alt="Silent Disco">
+          </div>
+          <h3>Silent Disco</h3>
+          <p>Dance with headphones — fun and noise-free!</p>
+        </div>
+  
+        <div class="addition-item">
+          <div class="circle-img">
+            <img src="circlefour.jpg" alt="Ice Sculpture">
+          </div>
+          <h3>Ice Sculpture Display</h3>
+          <p>Custom ice creations that wow your guests.</p>
+        </div>
+  
+        <div class="addition-item">
+          <div class="circle-img">
+            <img src="circlefive.jpg" alt="Caricature Artist">
+          </div>
+          <h3>Caricature Artist</h3>
+          <p>Live sketches of guests — fun and personal!</p>
+        </div>
+  
+        <div class="addition-item">
+          <div class="circle-img">
+            <img src="circlesix.jpg" alt="Drone Photography">
+          </div>
+          <h3>Drone Photography</h3>
+          <p>Aerial views to capture every angle beautifully.</p>
+        </div>
+      </div>
+    </div>
+       <br><br><br> <strong> <p >
+          Want to personalize your event even more? You can add, remove, or suggest any element you’d like — we’re here to bring your vision to life!
+        </p></strong>
+  </section>
+  
+  
+
+  <section class="slidecontainer" id="gallery">
+    <h2>Some of Our Work</h2>
+    <p>Explore some of our past events and projects below.</p>
+
+    <section class="new">
+      <a href="gallery.html">Explore More </a>
+    </section>
+
+    <div class="slideview">
+      <div class="slideimage" id="sliderImages">
+        <img src="a.jpg" alt="Event 1">
+        <img src="b.jpg" alt="Event 3">
+        <img src="c.jpg" alt="Event 4">
+        <img src="d.jpg" alt="Event 5">
+        <img src="e.jpg" alt="Event 6">
+      </div>
+      <div class="slidenav">
+        <button id="prevBtn">&#10094;</button>
+        <button id="nextBtn">&#10095;</button>
+      </div>
+    </div>
+  </section>
+  
+  <section class="packages-preview">
+    <div class="container">
+      <h2 class="section-title">Crafted Collections</h2>
+      <p class="section-description">
+        From magical weddings to vibrant celebrations and professional corporate setups — we tailor every detail to your dreams.
+      </p>
+  
+      <div class="packages-preview-grid">
+  
+        <div class="package-preview-item">
+          <img src="packageone.jpg" alt="Wedding Event" class="package-preview-image">
+          <h3 class="package-preview-title">Wedding Events</h3>
+          <p class="package-preview-description">
+            Create your fairytale wedding with decor, catering, and coordination designed to perfection.
+          </p>
+        </div>
+  
+        <div class="package-preview-item">
+          <img src="packagetwo.jpg" alt="Birthday Celebration" class="package-preview-image">
+          <h3 class="package-preview-title">Celebrations</h3>
+          <p class="package-preview-description">
+            From birthdays to anniversaries — we bring your happiest moments to life with color and joy.
+          </p>
+        </div>
+  
+        <div class="package-preview-item">
+          <img src="packagethree.jpg" alt="Corporate Event" class="package-preview-image">
+          <h3 class="package-preview-title">Corporate Events</h3>
+          <p class="package-preview-description">
+            Professional and polished experiences for meetings, launches, and formal events.
+          </p>
+        </div>
+  
+      </div>
+  
+      <div class="explore">
+        <a href="service.html" class="btn-primary">Explore All Services</a>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="team">
+    <h2>Meet Our Team</h2>
+    <p class="team-intro">Our dedicated team of event planners, coordinators, and designers work passionately to turn your dream events into reality.</p>
+    <div class="team-members">
+      <div class="member">
+        <img src="memberone.jpg" alt="Team Member 1">
+        <h3>Amina Khan</h3>
+        <p>Lead Event Planner</p>
+      </div>
+      <div class="member">
+        <img src="membertwoi.jpg" alt="Team Member 2">
+        <h3>Ali Raza</h3>
+        <p>Creative Director</p>
+      </div>
+      <div class="member">
+        <img src="memberthree.jpg" alt="Team Member 3">
+        <h3>Fatima Noor</h3>
+        <p>Client Coordinator</p>
+      </div>
+    </div>
+  </section>
+  
+     
+  <section class="event">
+    <h2>Why Choose Us for Your Event?</h2>
+    <p>At Moments & Co., we pride ourselves on offering highly professional event management services that bring your ideas to life with style, 
+        elegance, and efficiency. Whether it's a corporate event, wedding, conference, or private party, we handle every detail, ensuring 
+        a seamless experience from start to finish. Our team is experienced, creative, and dedicated to making your event unique and memorable. 
+        And best of all, we offer our exceptional services at affordable rates without compromising quality.</p>
+        <section class="features">
+          <a href="schedule.html" style="text-decoration: none; color: inherit;"></a>
+            <div class="feature">
+              <img src="schedule.jpg" alt="Schedule">
+              <h3>Event Scheduling</h3>
+              <p>Easily schedule events and send reminders to attendees.</p>
+            </div>
+            </a>
+            <div class="feature">
+              <img src="guestmanage.jpg" alt="Guest">
+              <h3>Guest Management</h3>
+              <p>Track RSVPs and manage your guest list effortlessly.</p>
+            </div>
+            <div class="feature">
+              <img src="invitation.jpg" alt="Invites">
+              <h3>Online Invitations</h3>
+              <p>Create and send beautiful invitations with ease.</p>
+            </div>
+            <div class="feature">
+              <img src="payment.jpg" alt="Payment">
+              <h3>Payments Integration</h3>
+              <p>Collect payments directly from your event page.</p>
+            </div>
+          </section>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to plan your next event?</h2>
+    <a href="contact.html">Contact Us</a>
+  </section>
+
+  <footer>
+    <div class="footer-columns">
+      <div>
+        <h4>Head Office</h4>
+        <p>4 C, Zulfiqar Commercial Street 3, Phase VIII, D.H.A. Karachi - 75500 Pakistan</p>
+        <p><strong>Phone:</strong> +92 305 2224878</p>
+        <p><strong>Email:</strong> info@prime-events.pk</p>
+      </div>
+      <div>
+        <h4>Lahore Office</h4>
+        <p>9-N, Model Town Extension, Lahore, Pakistan</p>
+        <p><strong>Phone:</strong> +92 305 2224878</p>
+        <p><strong>Email:</strong> info@prime-events.pk</p>
+      </div>
+      <div>
+        <h4>USA & Canada Office</h4>
+        <p>1040 Cedar Creek Drive, Gloucester, Ottawa, K1X 0G3 Canada</p>
+        <p><strong>Phone:</strong> +1 343 988 4125</p>
+        <p><strong>Email:</strong> tafseer786@gmail.com</p>
+      </div>
+      <div>
+        <h4>Latest News</h4>
+        <p>8<sup>th</sup> Pak Water & Energy Expo from 3<sup>rd</sup> - 5<sup>th</sup> December, 2024 at Expo Centre Karachi</p>
+        <p>17<sup>th</sup> Pak Pharma & Healthcare Expo from 20<sup>th</sup> - 22<sup>nd</sup> Jan, 2025 at Expo Centre Lahore</p>
+        <div class="subscribe">
+          <input type="text" placeholder="Your email">
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="social-links">
+      <p>Follow us: 
+        <a href="#">Instagram</a> |
+        <a href="#">LinkedIn</a> |
+        <a href="#">GitHub</a>
+      </p>
+      <p>&copy; 2025 Event Manager. All rights reserved.</p>
+    </div>
+  
+  </footer>
+
+  <script>
+    const slider = document.getElementById('sliderImages');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const slides = slider.querySelectorAll('img');
+  
+    let currentIndex = 0;
+    const slideIntervalTime = 1500; 
+    let slideInterval;
+  
+    function updateSlider() {
+      const slideWidth = slides[0].clientWidth;
+      slider.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+    }
+  
+    function goToNextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlider();
+    }
+  
+    function goToPrevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlider();
+    }
+  
+    function startAutoSlide() {
+      slideInterval = setInterval(goToNextSlide, slideIntervalTime);
+    }
+  
+    function stopAutoSlide() {
+      clearInterval(slideInterval);
+    }
+  
+    updateSlider();
+    startAutoSlide();
+  
+    nextBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      goToNextSlide();
+      startAutoSlide();
+    });
+  
+    prevBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      goToPrevSlide();
+      startAutoSlide();
+    });
+   
+    slider.addEventListener('mouseenter', stopAutoSlide);
+    slider.addEventListener('mouseleave', startAutoSlide);
+  
+    window.addEventListener('resize', updateSlider);
+  
+    window.addEventListener('beforeunload', stopAutoSlide);
+</script>
+  
+
+  
+
+</body>
+
+</html>

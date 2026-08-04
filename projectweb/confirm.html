@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confirm Your Order</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #D7CCC8, #BCAAA4, #A1887F, #EFEBE9);
+      color: #5D4037;
+      margin: 0;
+      padding: 40px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .explore{
+      margin-top: 40px;
+    }
+    .subscribe button{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+
+    }
+    .subscribe button:hover{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      background-color: #302214;
+    }
+    .subscribe input{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #EFEBE9;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      animation: slideUp 1s ease-in-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      color: #3E2723;
+      animation: bounce 1s ease-in-out;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      30% {
+        transform: translateY(-10px);
+      }
+      50% {
+        transform: translateY(0);
+      }
+      70% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+      color: #5D4037;
+    }
+
+    select, input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #A1887F;
+      background-color: #D7CCC8;
+    }
+
+    .visit-link {
+      font-size: 0.9em;
+      margin-top: 6px;
+      display: inline-block;
+      text-decoration: underline;
+      color: #3E2723;
+    }
+
+    .btn {
+      display: block;
+      background-color: #5D4037;
+      color: #fff;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #3E2723;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #3E2723;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🎉 Confirm Your Event Order Details</h2>
+    <p style="text-align: center; color: #5D4037; font-size: 1.2em;">
+      You are one step away from finalizing your event details. Please verify and confirm the selections below to proceed with your booking.
+    </p>
+
+    <form id="confirm-form">
+      <label for="theme">Select Theme</label>
+      <select id="theme" required>
+        <option>Elegant & Classy</option>
+        <option>Rustic Charm</option>
+        <option>Modern Minimal</option>
+        <option>Fairytale Garden</option>
+        <option>Bollywood Bash</option>
+        <option>Neon Nights</option>
+      </select>
+      <a href="service.html#theme-tone" class="visit-link">🎨 Visit Theme Section</a>
+
+      <label for="venue">Select Venue</label>
+      <select id="venue" required>
+        <option>The Grand Ballroom</option>
+        <option>Garden Retreat</option>
+        <option>Rooftop Lounge</option>
+        <option>Heritage Mansion</option>
+        <option>Beachfront Pavilion</option>
+      </select>
+      <a href="service.html#venue-options" class="visit-link">🏛️ Visit Venue Options</a>
+
+      <label for="catering">Select Catering</label>
+      <select id="catering" required>
+        <option>Multi-course Formal Dinner</option>
+        <option>Buffet Style</option>
+        <option>Live Food Stations</option>
+        <option>Vegan & Health-Conscious</option>
+        <option>Traditional Regional Cuisine</option>
+      </select>
+      <a href="service.html#catering-services" class="visit-link">🍽️ Visit Catering Services</a>
+
+      <label for="guests">Number of Guests</label>
+      <input type="number" id="guests" placeholder="e.g. 100" required />
+
+      <label for="guest-names">Guest List (comma separated)</label>
+      <textarea id="guest-names" placeholder="e.g. Alice, Bob, Charlie"></textarea>
+
+      <button type="submit" class="btn">✅ Confirm and Proceed</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('confirm-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      localStorage.setItem('theme', document.getElementById('theme').value);
+      localStorage.setItem('venue', document.getElementById('venue').value);
+      localStorage.setItem('catering', document.getElementById('catering').value);
+      localStorage.setItem('guests', document.getElementById('guests').value);
+      localStorage.setItem('guestList', document.getElementById('guest-names').value);
+
+      window.location.href = "thankyou.html"; // Next step
+    });
+  </script>
+</body>
+</html>

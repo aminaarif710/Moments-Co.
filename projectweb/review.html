@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Moments & Co.-Reviews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom right, #dbd1cc, #D7CCC8);
+            color: #3E2723;
+        }
+
+        nav {
+            background: linear-gradient(to right, #3E2723, #5D4037);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .name {
+            display: flex;
+            align-items: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #fefefe;
+            margin-right: auto;
+        }
+
+        .name img {
+            width: 60px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+
+        .menulink {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menulink a {
+            color: #e5e5c8;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            padding-right: 10px;
+            font-size: 1.1em;
+        }
+            
+        .menulink a:hover {
+      color: #c6c696;
+      text-decoration: underline;
+    }
+    .explore{
+      margin-top: 40px;
+    }
+    .subscribe button{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+
+    }
+    .subscribe button:hover{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      background-color: #302214;
+    }
+    .subscribe input{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+        .hero 
+        {
+            background: url('newreview.jpg') center center / cover no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            color:  linear-gradient(to right, #3E2723, #5D4037);
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 
+        {
+            font-size: 4rem;
+            color: linear-gradient(to right, #3E2723, #5D4037);
+            margin-bottom: 20px;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-in-out forwards;
+            
+        }
+
+        .hero p 
+        {
+            font-size: 1.5rem;
+            padding: 20px;
+            color:linear-gradient(to right, #3E2723, #5D4037);
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+
+        main {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        .reviews-header {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: #e6dbdb;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .review-card:hover {
+            transform: translateY(5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .stars {
+            color: #FFC107;
+            font-size: 1.2rem;
+            margin: 0.3rem 0;
+        }
+
+        .review-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .review-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+         
+        .review-form 
+        {
+            background: linear-gradient(to right,#ae8c72,#b89586);
+            padding: 50px;
+            /* border-radius: 15px; */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            animation: fadeInUp 1.5s ease-out forwards;
+            animation-delay: 1.3s;
+        }
+
+        .review-form form 
+        {
+            max-width: 600px;
+            width: 100%;
+            background: linear-gradient(to right, #e7ded4, #eadac8);
+            color: black;
+
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .review-form h2 
+        {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #000000;
+        }
+
+        .form
+        {
+            margin-bottom: 20px;
+        }
+
+        .form label 
+        {
+            display: block;
+            font-size: 1.1rem;
+            color: #000000;
+        }
+
+        .form input, .form text
+        {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #333;
+            /* background: linear-gradient(to right, #fdf8f3, #e7d9c4); */
+            color: #000000;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form text 
+        {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form button 
+        {
+            width: 50%;
+            padding: 12px;
+            background-color: #784b07;
+            color: #fff;
+            border: none;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form button:hover 
+        {
+            background-color: #855d3b;
+        }
+
+        hr{
+            width: 70%  ;
+           }
+
+        footer {
+            background: #392c2a;
+            color: #ddd8c1;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        footer a {
+            color: #edebdb;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .cta {
+            background: linear-gradient(to bottom right, #c5b1aa, #98837f);
+            color: #dfdbc7;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta a {
+            background: #e1dfd5;
+            color: #3E2723;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta a:hover {
+            background: rgb(76, 44, 44);
+            color: white;
+        }
+
+        footer 
+    {
+      background: #392c2a;
+      color: #ddd8c1;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    footer a 
+    {
+      color: #edebdb;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover 
+    {
+      color: white;
+    }
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      background-color:  #5D4037;
+      color: #fff;
+      padding: 40px;
+    }
+
+    .footer-columns h4 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .footer-columns p, .footer-columns a {
+      font-size: 0.95em;
+      color: #ccc;
+      margin-top: 5px;
+    }
+
+    .footer-columns a:hover {
+      color: #fff;
+    }
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="name">
+            <img src="logo.png" alt="logo">
+            <span>Moments & Co.</span>
+        </div>
+
+        <div class="menulink">
+            <a href="p.html">Home</a>
+
+            <a href="service.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+
+            <a href="review.html">Review</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+    <header>
+    </header>
+
+    <section class="hero">
+    
+      <h1>Share Your Experience </h1> 
+      <p> Help Others Make The Right Choice! </p>  
+      <p class="reviews-header">
+        What our amazing clients say 💬<br>
+    </p>     
+    </section>
+       
+
+    <main>
+       
+      <p class="reviews-header">
+        <br> 
+        <strong>⭐⭐⭐⭐⭐ 5.0 rating</strong> based on 26+ heartfelt reviews
+    </p>
+        <div class="review-grid">
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Reviewer" class="review-img">
+                <div class="review-name">Josh Johnson</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="review-text">Moments and Co. made our big day truly magical! The décor, the planning —
+                    everything was spot on!</div>
+            </div>
+
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Reviewer" class="review-img">
+                <div class="review-name">Andrew Lee</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="review-text">Professional team and stunning execution. Highly recommended!</div>
+            </div>
+
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Reviewer" class="review-img">
+                <div class="review-name">Sara Malhotra</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="review-text">Their team really understood my vision and brought it to life. Classy and
+                    elegant setup!</div>
+            </div>
+
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Reviewer" class="review-img">
+                <div class="review-name">Fatima Khan</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="review-text">Everything was seamless and beautiful. My guests were in awe! Definitely
+                    recommending them to everyone!</div>
+            </div>
+
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Reviewer" class="review-img">
+                <div class="review-name">Amna Khan</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="review-text">I was amazed by the elegance and coordination. Everything turned out more
+                    beautiful than I imagined!</div>
+            </div>
+
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Reviewer" class="review-img">
+                <div class="review-name">Ahmed Raza</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="review-text">Smooth coordination, elegant decorations, and prompt communication. 10/10
+                    service!</div>
+            </div>
+
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Reviewer" class="review-img">
+                <div class="review-name">Zara Shah</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="review-text">They made my wedding look like a fairytale. Couldn’t be happier!</div>
+            </div>
+
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/men/60.jpg" alt="Reviewer" class="review-img">
+                <div class="review-name">Usman Tariq</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="review-text">Excellent coordination and budget-friendly services. I would love to work with
+                    them again!</div>
+            </div>
+
+            <div class="review-card">
+                <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Reviewer" class="review-img">
+                <div class="review-name">Nida Hasan</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <div class="review-text">From start to finish, the whole experience was smooth and enjoyable. Thank you
+                    Moments & Co.!</div>
+            </div>
+        </div>
+    </main>
+      
+    <div class="review-form">
+      <form id="reviewForm" action="https://formspree.io/f/mwkybgkp" method="POST">
+          <h2>Leave a Review</h2>
+          <div class="form">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form">
+              <label for="review">Your Review</label>
+              <textarea id="review" name="review" required></textarea>
+          </div>
+          <div class="form">
+              <center><button type="submit">Submit Review</button></center>
+          </div>
+      </form>
+  </div>
+
+
+
+    <section class="cta">
+        <h2>Ready to plan your next event?</h2>
+        <a href="contact.html">Contact Us</a>
+    </section>
+
+    <footer>
+      <div class="footer-columns">
+        <div>
+          <h4>Head Office</h4>
+          <p>4 C, Zulfiqar Commercial Street 3, Phase VIII, D.H.A. Karachi - 75500 Pakistan</p>
+          <p><strong>Phone:</strong> +92 305 2224878</p>
+          <p><strong>Email:</strong> info@prime-events.pk</p>
+        </div>
+        <div>
+          <h4>Lahore Office</h4>
+          <p>9-N, Model Town Extension, Lahore, Pakistan</p>
+          <p><strong>Phone:</strong> +92 305 2224878</p>
+          <p><strong>Email:</strong> info@prime-events.pk</p>
+        </div>
+        <div>
+          <h4>USA & Canada Office</h4>
+          <p>1040 Cedar Creek Drive, Gloucester, Ottawa, K1X 0G3 Canada</p>
+          <p><strong>Phone:</strong> +1 343 988 4125</p>
+          <p><strong>Email:</strong> tafseer786@gmail.com</p>
+        </div>
+        <div>
+          <h4>Latest News</h4>
+          <p>8<sup>th</sup> Pak Water & Energy Expo from 3<sup>rd</sup> - 5<sup>th</sup> December, 2024 at Expo Centre Karachi</p>
+          <p>17<sup>th</sup> Pak Pharma & Healthcare Expo from 20<sup>th</sup> - 22<sup>nd</sup> Jan, 2025 at Expo Centre Lahore</p>
+          <div class="subscribe">
+            <input type="text" placeholder="Your email">
+            <button>Subscribe</button>
+          </div>
+        </div>
+      </div>
+    
+      <div class="social-links">
+        <p>Follow us: 
+          <a href="#">Instagram</a> |
+          <a href="#">LinkedIn</a> |
+          <a href="#">GitHub</a>
+        </p>
+        <p>&copy; 2025 Event Manager. All rights reserved.</p>
+      </div>
+    
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.review-card').forEach(card => {
+            card.style.animationPlayState = 'paused';
+            observer.observe(card);
+        });
+    </script>
+</body>
+
+</html>

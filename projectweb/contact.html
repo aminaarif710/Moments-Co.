@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Event Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <style>
+  
+    body {
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background-color: #D7CCC8;
+      color: #7b5f5f;
+      line-height: 1.6;
+    }
+
+    .explore{
+      margin-top: 40px;
+    }
+    .subscribe button{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+
+    }
+    .subscribe button:hover{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      background-color: #302214;
+    }
+    .subscribe input{
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+    nav 
+    {
+      background: linear-gradient(to right, #3E2723, #5D4037);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .menulink
+    {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menulink a 
+    {
+      color: #e5e5c8;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      padding-right: 10px;
+      font-size: 1.1em;
+    }
+
+  
+
+    .name {
+      display: flex;
+      align-items: center;
+      font-size: 1.8em;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .name img {
+      width: 60px;
+      margin-right: 10px;
+    }
+
+    .menulink a {
+      font-size: 1.1em;
+      color:  #e5e5c8;
+      font-weight: 500;
+      margin-left: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .menulink a:hover {
+      color: #c6c696;
+      text-decoration: underline;
+    }
+
+    /* Contact Section */
+    .contact-intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 50px;
+      color: #865c62;
+      min-height: 20vh;
+      margin-left: 15%;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact-intro h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+      animation-delay: 0.2s;
+    }
+
+    .contact-intro p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      animation-delay: 0.4s;
+    }
+
+    /* Form Section */
+    .form-section {
+        background: linear-gradient(-45deg, #D7CCC8, #BCAAA4, #A1887F, #EFEBE9);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 40px 60px;
+      border-radius: 12px;
+    }
+
+    .form-section h2 {
+      font-size: 2rem;
+      text-align: center;
+      color: #705156;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: block;
+      font-size: 1.1em;
+    }
+
+    .form-section input{
+      padding: 10px;
+      width: 100%;
+      justify-items: center;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .form-section textarea{
+      padding: 10px;
+      width: 100%;
+      justify-items: center;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .form-section button{
+      margin: 10px;
+      padding: 10px;
+      width: 15%;
+      justify-items: center;
+      border: none;
+      background-color: #705156;
+      color: white;
+      border-radius: 20px;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      background-color:  #5D4037;
+      color: #fff;
+      padding: 40px;
+    }
+
+    .footer-columns h4 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .footer-columns p, .footer-columns a {
+      font-size: 0.95em;
+      color: #ccc;
+    }
+
+    .footer-columns a:hover {
+      color: #fff;
+    }
+    section.two {
+  background: linear-gradient(to bottom right, #D7CCC8, #BCAAA4);
+  padding: 4rem 2rem;
+  border-top: 0.5px solid #3E2723;;
+  border-bottom: 0.5px solid #3E2723;;
+}
+
+ 
+   /* NEW Contact Section Styling */
+   .contact-wrapper {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .contact-wrapper h2 {
+      font-size: 2em;
+      /* color: #333; */
+      color: #3E2723
+    }
+
+    .contact-wrapper .subtitle {
+      color: #777;
+      /* background: #392c2a; */
+      margin-bottom: 30px;
+    }
+
+    .contact-cards {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-cards .card {
+      flex: 1;
+      min-width: 280px;
+      /* background-color: #f8f9fa;  */
+      background: linear-gradient(to bottom right, #D7CCC8, #BCAAA4);     
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      /* background: linear-gradient(to bottom right, #EFEBE9, #D7CCC8); */
+    }
+
+    .contact-cards .icon {
+      font-size: 2em;
+      color: #3E2723;
+      /* color: #007bff; */
+      margin-bottom: 10px;
+    }
+
+    .contact-cards h3 {
+      margin-bottom: 10px;
+      /* color: #333; */
+      color: #3E2723
+    }
+    
+    .contact-cards p { 
+      /* color: #333; */
+      /* color: #555; */
+      color: #3E2723;
+      font-size: 1em;
+    }
+
+    .contact-cards a {
+      /* color: #007bff; */
+      text-decoration: none;
+    }
+
+    .contact-cards a:hover {
+      text-decoration: underline;
+    }
+    .map-container {
+    margin-top: 40px;
+    width: 100%;
+    background-color: #5D4037;
+  }
+
+  .map-container h3 {
+    font-size: 2rem;
+color: #BCAAA4;
+
+
+margin-left: 45%;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map iframe {
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .contact-cards .card {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-cards .card {
+      width: 100%;
+    }
+  }
+
+   
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="name">
+        <img src="logo.png" alt="logo">
+        <span>Moments & Co.</span>
+      </div>
+      <div class="menulink">
+        <a href="p.html">Home</a>
+        <a href="service.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="review.html">Review</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="contact-intro">
+    <h2>We’d Love to Hear From You</h2>
+    <p>Whether you’re planning a magical wedding, a corporate event, or a personal celebration, reach out to us. Let’s create memorable moments together!</p>
+  </section>
+
+  <section class="form-section">
+    <h2>Send Us a Message</h2>
+    <form onsubmit="showAlert(event)">
+      <div>
+        <label>Name</label>
+        <input type="text" placeholder="Your Name" required>
+      </div>
+      <div>
+        <label>Email</label>
+        <input type="email" placeholder="Your Email" required>
+      </div>
+      <div class="full-width">
+        <label>Message</label>
+        <textarea placeholder="Your Message" required></textarea>
+      </div>
+      <center><button class="subbutt" type="submit">Submit</button></center>
+    </form>
+  </section>
+  <section class="two">
+    <!-- NEW Contact Info Div (Styled like your image) -->
+    <div class="contact-wrapper">
+      <h2>Contact Us</h2>
+      <p class="subtitle">We are located at DHA, Karachi, Pakistan at following street address.</p>
+      <div class="contact-cards">
+        <div class="card">
+          <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Address</h3>
+          <p>
+            3<sup>rd</sup> Floor, Building # 3C,<br>
+            22<sup>nd</sup> Commercial St,<br>
+            Phase II Ext. D-1 A, Karachi, Pakistan
+          </p>
+        </div>
+        <div class="card">
+          <div class="icon"><i class="fas fa-phone-alt"></i></div>
+          <h3>Phone Number</h3>
+          <p>+92 305 222 4878</p>
+        </div>
+        <div class="card">
+          <div class="icon"><i class="fas fa-envelope"></i></div>
+          <h3>Email</h3>
+          <p><a href="mailto:info@eventmanager.com">info@eventmanager.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="map-container">
+    <h3>Our Location</h3>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.9361555462406!2d67.067438875635!3d24.83185687794784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33c40265e11a3%3A0x906d24531e267b1c!2s3-C%2022nd%20Commercial%20St%2C%20D.H.A%20Phase%20II%20Extension%20Phase%202%20Commercial%20Area%20Defence%20Housing%20Authority%2C%20Karachi%2C%2075500%2C%20Pakistan!5e0!3m2!1sen!2s!4v1745425058887!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+    <div class="footer-columns">
+      <div>
+        <h4>Head Office</h4>
+        <p>4 C, Zulfiqar Commercial Street 3, Phase VIII, D.H.A. Karachi - 75500 Pakistan</p>
+        <p><strong>Phone:</strong> +92 305 2224878</p>
+        <p><strong>Email:</strong> info@prime-events.pk</p>
+      </div>
+      <div>
+        <h4>Lahore Office</h4>
+        <p>9-N, Model Town Extension, Lahore, Pakistan</p>
+        <p><strong>Phone:</strong> +92 305 2224878</p>
+        <p><strong>Email:</strong> info@prime-events.pk</p>
+      </div>
+      <div>
+        <h4>USA & Canada Office</h4>
+        <p>1040 Cedar Creek Drive, Gloucester, Ottawa, K1X 0G3 Canada</p>
+        <p><strong>Phone:</strong> +1 343 988 4125</p>
+        <p><strong>Email:</strong> tafseer786@gmail.com</p>
+      </div>
+      <div>
+        <h4>Latest News</h4>
+        <p>8<sup>th</sup> Pak Water & Energy Expo from 3<sup>rd</sup> - 5<sup>th</sup> December, 2024 at Expo Centre Karachi</p>
+        <p>17<sup>th</sup> Pak Pharma & Healthcare Expo from 20<sup>th</sup> - 22<sup>nd</sup> Jan, 2025 at Expo Centre Lahore</p>
+        <div class="subscribe">
+          <input type="text" placeholder="Your email">
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </div>
+  <center>
+    <div class="social-links">
+      <p>Follow us: 
+        <a href="#">Instagram</a> |
+        <a href="#">LinkedIn</a> |
+        <a href="#">GitHub</a>
+      </p>
+      <p>&copy; 2025 Event Manager. All rights reserved.</p>
+    </div>
+  </center>
+    <script>
+      function showAlert(event) {
+        event.preventDefault();
+        alert("Thank you! Your message has been submitted.");
+      }
+    </script>
